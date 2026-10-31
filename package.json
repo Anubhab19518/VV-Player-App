@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "dependencies": {
     "@expo/ui": "~57.0.23",
+    "@expo/vector-icons": "^15.0.2",
     "expo": "~57.0.28",
     "expo-constants": "~57.0.21",
     "expo-device": "~57.0.2",
@@ -12,6 +13,7 @@
     "expo-image": "~57.0.5",
     "expo-linking": "~57.0.12",
     "expo-router": "~57.0.26",
+    "expo-secure-store": "~57.0.4",
     "expo-splash-screen": "~57.0.10",
     "expo-status-bar": "~57.0.1",
     "expo-symbols": "~57.0.3",
@@ -29,15 +31,21 @@
   },
   "devDependencies": {
     "@types/react": "~19.2.2",
+    "eslint": "^9.0.0",
+    "eslint-config-expo": "~57.0.2",
     "typescript": "~6.0.3"
   },
   "scripts": {
+    "detect-ip": "node ./scripts/detect-network-ip.js",
+    "prestart": "node ./scripts/detect-network-ip.js",
     "start": "expo start",
-    "reset-project": "node ./scripts/reset-project.js",
+    "preandroid": "node ./scripts/detect-network-ip.js",
     "android": "expo start --android",
+    "preios": "node ./scripts/detect-network-ip.js",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "lint": "expo lint"
+    "lint": "expo lint",
+    "test:flow": "node ./scripts/test-player-flow.js"
   },
   "private": true
 }
